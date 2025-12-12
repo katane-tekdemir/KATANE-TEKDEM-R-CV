@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Katane Tekdemir | Cyber Interface</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="cursor-dot" id="cursor-dot"></div>
+    <div class="cursor-outline" id="cursor-outline"></div>
+
+    <div id="boot-screen">
+        <div class="boot-text">
+            <p>> INITIALIZING CORE SYSTEMS...</p>
+            <p>> LOADING ASSETS... [OK]</p>
+            <p>> DECRYPTING SECURE DATA...</p>
+            <p>> WELCOME USER: KATANE TEKDEMIR</p>
+            <div class="loading-bar"><div class="bar-fill"></div></div>
+        </div>
+    </div>
+
+    <div class="cyber-bg"></div>
+    <div class="scanline"></div>
+
+    <nav class="glass-nav">
+        <div class="brand">
+            <img src="https://via.placeholder.com/100" id="nav-logo" class="glow-logo" alt="Logo">
+            <div class="brand-text">
+                <h1 id="nav-name" class="glitch" data-text="KATANE">KATANE</h1>
+                <span id="nav-sub">ONLINE</span>
+            </div>
+        </div>
+        <div class="menu">
+            <button class="menu-btn active" onclick="navigate('home')"><i class="fas fa-home"></i> MERKEZ</button>
+            <button class="menu-btn" onclick="navigate('schools')"><i class="fas fa-graduation-cap"></i> OKULLAR</button> <button class="menu-btn" onclick="navigate('about')"><i class="fas fa-user-astronaut"></i> PROFİL</button>
+            <button class="menu-btn" onclick="navigate('projects')"><i class="fas fa-code-branch"></i> PROJELER</button>
+            <button class="menu-btn" onclick="navigate('library')"><i class="fas fa-database"></i> ARŞİV</button>
+            <button class="menu-btn" onclick="navigate('contact')"><i class="fas fa-satellite-dish"></i> İLETİŞİM</button>
+        </div>
+    </nav>
+
+    <main id="app">
+        
+        <section id="home" class="view active">
+            <div class="hero-container">
+                <div class="hero-box">
+                    <div class="avatar-container">
+                        <img src="" id="hero-img" alt="Avatar">
+                        <div class="circle-anim"></div>
+                    </div>
+                    <h1 id="hero-title" class="glitch large-glitch" data-text="KATANE TEKDEMIR">KATANE TEKDEMIR</h1> <p id="hero-subtitle" class="typing-subtitle">DEVELOPER & DESIGNER</p>
+                    
+                    <div class="stats-row">
+                        <div class="stat-item">
+                            <h3 id="stat-count-1">0</h3>
+                            <span>PROJELER</span>
+                        </div>
+                        <div class="stat-item">
+                            <h3 id="stat-count-2">0</h3>
+                            <span>ARŞİV</span>
+                        </div>
+                        <div class="stat-item">
+                            <h3 id="stat-count-3">5</h3>
+                            <span>YIL DENEYİM</span>
+                        </div>
+                    </div>
+
+                    <div class="hero-btns">
+                        <button class="cyber-btn" onclick="navigate('library')">SİSTEME GİRİŞ</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="schools" class="view">
+            <h2 class="section-header">OKUL KAYITLARI <div class="line"></div></h2>
+            <div id="schools-grid" class="grid-layout">
+                </div>
+        </section>
+        
+        <section id="about" class="view">
+            <h2 class="section-header">KİMLİK VERİLERİ <div class="line"></div></h2>
+            <div class="two-col-grid">
+                <div class="glass-card">
+                    <h3>HAKKINDA</h3>
+                    <p id="about-text" class="terminal-p"></p> </div>
+                <div class="glass-card">
+                    <h3>YETENEK MATRİSİ</h3>
+                    <div class="skill-container">
+                        <div class="skill-label"><span>JavaScript / React</span> <span>95%</span></div>
+                        <div class="progress-bar"><div class="fill" style="width: 95%"></div></div>
+                        
+                        <div class="skill-label"><span>UI / UX Design</span> <span>85%</span></div>
+                        <div class="progress-bar"><div class="fill" style="width: 85%"></div></div>
+
+                        <div class="skill-label"><span>Cyber Security</span> <span>70%</span></div>
+                        <div class="progress-bar"><div class="fill" style="width: 70%"></div></div>
+                        
+                        <div class="skill-label"><span>Python / Backend</span> <span>90%</span></div>
+                        <div class="progress-bar"><div class="fill" style="width: 90%"></div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="view">
+            <h2 class="section-header">PROJE VERİLERİ <div class="line"></div></h2>
+            
+            <div class="control-panel">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="project-search" placeholder="Proje Ara (React, Python...)" onkeyup="searchProjects()">
+                </div>
+                <div class="filter-group" id="project-filters">
+                    <button class="filter-btn active" onclick="filterProjects('all')">TÜMÜ</button>
+                    </div>
+            </div>
+
+            <div id="projects-grid" class="grid-layout">
+                </div>
+        </section>
+
+        <section id="library" class="view">
+            <h2 class="section-header">VERİ TABANI <div class="line"></div></h2>
+            
+            <div class="control-panel">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="search-input" placeholder="Veri Ara (Kitap, Dizi...)" onkeyup="searchLibrary()">
+                </div>
+                <div class="filter-group">
+                    <button class="filter-btn active" onclick="filterItems('all', event)">TÜMÜ</button>
+                    <button class="filter-btn" onclick="filterItems('book', event)">KİTAP</button>
+                    <button class="filter-btn" onclick="filterItems('series', event)">DİZİ</button>
+                    <button class="filter-btn" onclick="filterItems('youtube', event)">YOUTUBE</button>
+                    <button class="filter-btn" onclick="filterItems('podcast', event)">PODCAST</button> <button class="filter-btn" onclick="filterItems('song', event)">ŞARKI</button> </div>
+            </div>
+
+            <div id="library-grid" class="grid-layout">
+                </div>
+        </section>
+
+        <section id="contact" class="view">
+            <h2 class="section-header">FREKANS BAĞLANTISI <div class="line"></div></h2>
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <div class="c-item"><i class="fas fa-envelope"></i> <span id="c-email">...</span></div>
+                    <div class="c-item"><i class="fab fa-instagram"></i> <span id="c-insta">...</span></div>
+                    <div class="c-item"><i class="fas fa-phone-alt"></i> <span id="c-phone">...</span></div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>ŞİFRELİ MESAJ GÖNDER</h3>
+                    <input type="text" placeholder="Kod Adınız" class="form-input">
+                    <input type="email" placeholder="İletişim Protokolü (Email)" class="form-input">
+                    <textarea rows="4" placeholder="Mesaj İçeriği..." class="form-input"></textarea>
+                    <button class="cyber-btn full" onclick="simulateSend()">TRANSMIT DATA</button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div id="admin-btn" title="Admin Access">
+        <i class="fas fa-biohazard"></i>
+    </div>
+
+    <div id="modal-login" class="modal">
+        <div class="modal-content small">
+            <span class="close">&times;</span>
+            <h2 class="neon-title">SECURITY CHECK</h2>
+            <input type="text" id="login-email" placeholder="User ID">
+            <input type="password" id="login-pass" placeholder="Passcode">
+            <button class="cyber-btn full" onclick="login()">AUTHENTICATE</button>
+            <p id="login-msg"></p>
+        </div>
+    </div>
+
+    <div id="modal-admin" class="modal">
+        <div class="modal-content large">
+            <div class="modal-head">
+                <h2>ADMIN DASHBOARD</h2>
+                <button class="danger-btn" onclick="logout()">LOGOUT</button>
+            </div>
+            
+            <div class="tabs">
+                <button class="tab active" onclick="switchTab('tab-add')">ARŞİV EKLE</button>
+                <button class="tab" onclick="switchTab('tab-projects')">PROJE EKLE/DÜZENLE</button>
+                <button class="tab" onclick="switchTab('tab-schools')">OKUL KAYITLARI</button> <button class="tab" onclick="switchTab('tab-profile')">PROFİL DÜZENLE</button>
+                <button class="tab" onclick="switchTab('tab-security')">GÜVENLİK</button>
+            </div>
+
+            <div id="tab-add" class="tab-content active">
+                <div class="row">
+                    <input type="text" id="add-title" placeholder="Başlık">
+                    <select id="add-type">
+                        <option value="book">Kitap</option>
+                        <option value="series">Dizi</option>
+                        <option value="youtube">YouTube</option>
+                        <option value="podcast">Podcast</option> <option value="song">Şarkı</option> </select>
+                </div>
+                <input type="text" id="add-link" placeholder="Harici Link (YouTube URL, Spotify URL vb.) - İsteğe Bağlı"> <div class="file-drop">
+                    <label>Görsel Yükle: <input type="file" id="add-file"></label>
+                </div>
+                <textarea id="add-desc" placeholder="Açıklama"></textarea>
+                <button class="cyber-btn full" onclick="addItem()">VERİYİ KAYDET</button>
+                
+                <div class="admin-list-area">
+                    <h4>KAYITLI ARŞİV VERİLERİ</h4>
+                    <ul id="admin-list"></ul>
+                </div>
+            </div>
+
+            <div id="tab-projects" class="tab-content">
+                <input type="text" id="proj-title" placeholder="Proje Başlığı">
+                <input type="text" id="proj-link" placeholder="GitHub / Canlı Link (URL)">
+                <input type="text" id="proj-techs" placeholder="Kullanılan Teknolojiler (Virgülle Ayır: React, NodeJS, SCSS)">
+                <textarea id="proj-desc" placeholder="Proje Kısa Açıklaması"></textarea>
+                <button class="cyber-btn full" onclick="addProject()">PROJEYİ KAYDET</button>
+
+                <div class="admin-list-area">
+                    <h4>KAYITLI PROJELER</h4>
+                    <ul id="admin-project-list"></ul>
+                </div>
+            </div>
+
+            <div id="tab-schools" class="tab-content">
+                <input type="text" id="school-name" placeholder="Okul Adı / Bölüm">
+                <div class="row">
+                    <input type="text" id="school-period" placeholder="Dönem (2018 - 2022)">
+                    <input type="text" id="school-gpa" placeholder="Derece / Ortalama (4.00)">
+                </div>
+                <div class="file-drop">
+                    <label>Logo/Diploma Görseli Yükle: <input type="file" id="school-file"></label>
+                </div>
+                <textarea id="school-desc" placeholder="Kısa Açıklama / Başarılar"></textarea>
+                <button class="cyber-btn full" onclick="addSchool()">OKUL KAYDI EKLE</button>
+
+                <div class="admin-list-area">
+                    <h4>KAYITLI OKUL VERİLERİ</h4>
+                    <ul id="admin-school-list"></ul>
+                </div>
+            </div>
+
+
+            <div id="tab-profile" class="tab-content">
+                <label>Ad Soyad</label> <input type="text" id="set-name">
+                <label>Unvan</label> <input type="text" id="set-sub">
+                <label>Hakkında</label> <textarea id="set-about"></textarea>
+                <div class="row">
+                    <input type="text" id="set-insta" placeholder="Instagram (@)">
+                    <input type="text" id="set-phone" placeholder="Telefon (+90...)">
+                    <input type="email" id="set-email-contact" placeholder="İletişim E-mail">
+                </div>
+                <label>Logo Değiştir: <input type="file" id="set-logo"></label>
+                <button class="cyber-btn full" onclick="saveSettings()">GÜNCELLE</button>
+            </div>
+            
+            <div id="tab-security" class="tab-content">
+                <h4 style="color:var(--accent)">Sistem Giriş Bilgileri</h4>
+                <label>Admin E-Mail</label><input type="text" id="set-admin-email" placeholder="Yeni Admin E-mail">
+                <label>Admin Şifre</label><input type="text" id="set-admin-pass" placeholder="Yeni Admin Şifre">
+                <button class="danger-btn full" onclick="saveSecurity()">ŞİFRE DEĞİŞTİR</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-detail" class="modal">
+        <div class="modal-content medium">
+            <span class="close">&times;</span>
+            <div class="detail-grid">
+                <img id="d-img" src="" alt="">
+                <div>
+                    <h2 id="d-title" class="neon-text"></h2>
+                    <span id="d-type" class="badge"></span>
+                    <p id="d-desc"></p>
+                    <a id="d-link" target="_blank" class="project-link" style="display:none; margin-top: 10px;">İÇERİĞE GİT <i class="fas fa-external-link-alt"></i></a> </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-project-detail" class="modal">
+        <div class="modal-content medium project-detail-content">
+            <span class="close">&times;</span>
+            <h2 id="pd-title" class="neon-text"></h2>
+            <div id="pd-techs" class="tech-list"></div>
+            <p id="pd-desc"></p>
+            <a id="pd-link" target="_blank" class="cyber-btn full">PROJEYİ GÖRÜNTÜLE</a>
+        </div>
+    </div>
+
+    <div id="modal-school-detail" class="modal">
+        <div class="modal-content medium project-detail-content">
+            <span class="close">&times;</span>
+            <h2 id="sd-title" class="neon-text"></h2>
+            <img id="sd-img" src="" alt="Okul Görseli" style="width:100%; height:auto; max-height: 250px; object-fit: cover; border-radius: 4px; margin-bottom: 15px;">
+            <div class="row" style="margin-bottom: 15px;">
+                <span id="sd-period" class="tech-badge"></span>
+                <span id="sd-gpa" class="tech-badge" style="background: var(--primary); color: #000;"></span>
+            </div>
+            <p id="sd-desc"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
